@@ -8,7 +8,33 @@ export const yapilacaklar = [
   { id: "6", iş: "iş6" },
 ];
 export default function YapilacaklarListesi() {
-  const [aktifKutu, setAktifKutu] = useState(null);
+  const [Box, setBox] = useState(null);
 
-  //devam edecek...
+  const işaretle = (id) => {
+    Box === id ? setBox(null) : setBox(id);
+  };
+  const ClassAdiAl = (id) => {
+    Box === id ? "active" : "";
+  };
+  return (
+    <div className="container">
+      <h2>Yapılacak İşler</h2>
+      <div>
+        {yapilacaklar.map((item) => (
+          <div className="div-isler" key={item.id}>
+            <label htmlFor={item.id}>
+              {/* inputa verilen id ile labela verilen for(ancak burada htmlFor) kelimeye click edilince check eder. */}
+              {item.iş}
+            </label>
+            <input
+              type="checkbox"
+              id={item.id}
+              onClick={() => işaretle(item.id)}
+              className={ClassAdiAl(item.id)}
+            ></input>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }

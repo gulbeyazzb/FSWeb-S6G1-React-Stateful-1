@@ -29470,10 +29470,31 @@ exports.yapilacaklar = yapilacaklar;
 function YapilacaklarListesi() {
   var _useState = (0, _react.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
-    aktifKutu = _useState2[0],
-    setAktifKutu = _useState2[1];
-
-  //devam edecek...
+    Box = _useState2[0],
+    setBox = _useState2[1];
+  var işaretle = function işaretle(id) {
+    Box === id ? setBox(null) : setBox(id);
+  };
+  var ClassAdiAl = function ClassAdiAl(id) {
+    Box === id ? "active" : "";
+  };
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Yap\u0131lacak \u0130\u015Fler"), /*#__PURE__*/_react.default.createElement("div", null, yapilacaklar.map(function (item) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "div-isler",
+      key: item.id
+    }, /*#__PURE__*/_react.default.createElement("label", {
+      htmlFor: item.id
+    }, item.iş), /*#__PURE__*/_react.default.createElement("input", {
+      type: "checkbox",
+      id: item.id,
+      onClick: function onClick() {
+        return işaretle(item.id);
+      },
+      className: ClassAdiAl(item.id)
+    }));
+  })));
 }
 },{"react":"../node_modules/react/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -29516,7 +29537,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50959" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63290" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
